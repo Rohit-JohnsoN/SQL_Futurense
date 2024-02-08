@@ -1,0 +1,56 @@
+->Step 1:Data Exploration with SELECT and FROM
+
+USE world;
+
+SHOW tables FROM world;
+DESCRIBE city;
+SELECT * FROM city;
+
+DESCRIBE country;
+SELECT * FROM country;
+
+DESCRIBE countrylanguage;
+SELECT * FROM countrylanguage;
+
+->Step 2:Sorting Results with ORDER BY
+
+SELECT * FROM country ORDER BY population DESC;
+
+SELECT * FROM city ORDER BY countrycode, name;
+
+->Step 3:Filtering Data with WHERE, AND, OR, NOT
+
+1) Select all countries in Europe with a population greater than 50 million:
+
+SELECT * FROM country WHERE continent = 'Europe' AND population > 50000000;
+
+2) Select cities in Brazil or Argentina:
+
+SELECT *FROM city WHERE countrycode = 'BRA' OR countrycode = 'ARG';
+
+->Step 4:Advanced Filtering with IN, NOT IN, BETWEEN, LIKE
+1)Select countries in the 'Americas' or 'Asia' continent using IN:
+
+SELECT *FROM country WHERE continent IN ('Americas', 'Asia');
+
+2)Select countries with populations between 10 and 50 million using BETWEEN:
+
+SELECT *FROM country WHERE population BETWEEN 10000000 AND 50000000;
+3) Find cities with names starting with 'San' using LIKE:
+
+SELECT *FROM city WHERE name LIKE 'San%';
+
+->Step 5:
+Write a query to select the top 10 most populous cities in the world.
+
+SELECT *FROM city ORDER BY population DESC LIMIT 10;
+
+->STEP 6:
+Find countries where the HeadOfState is not specified (IS NULL).
+
+SELECT *FROM country WHERE HeadOfState IS NULL;
+
+->STEP 7:
+List all unique continents where the countries are located.
+
+SELECT DISTINCT continent FROM country;
